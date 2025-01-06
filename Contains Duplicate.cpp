@@ -22,7 +22,7 @@ class Solution {
     bool hasDuplicate(vector<int>& nums) {
         int length = nums.size();
 
-        map<int,int> numberMap;
+        unordered_map<int,int> numberMap;
         for(int i = 0; i < length; i++){
             int n = nums[i];
             if(numberMap[n]){
