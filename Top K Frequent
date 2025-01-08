@@ -1,0 +1,21 @@
+unordered_map<int,int> mp;
+        vector<int> ans;
+        pair<int,int> maxPair(0,0);
+
+        for(int i=0; i < nums.size(); ++i){
+            mp[nums[i]]++;
+        }
+
+        for(int i = 0; i < k; ++i){
+            for(auto j : mp){
+                if(j.second > maxPair.second ){
+                    maxPair.first = j.first;
+                    maxPair.second = j.second; 
+                }
+            }
+            ans.push_back(maxPair.first);
+            mp.erase(maxPair.first);
+            maxPair.first = 0;
+            maxPair.second = 0; 
+        }
+        return ans;
